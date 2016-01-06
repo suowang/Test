@@ -1,0 +1,52 @@
+{
+  "people": [
+    {
+      "person": {
+        "firstName": "bob",
+        "lastName": "smith",
+        "sex": "male",
+        "age": 25
+      }
+    },
+    {
+      "person": {
+        "firstName": "john",
+        "lastName": "smith",
+        "sex": "male",
+        "age": 60
+      }
+    },
+    {
+      "person": {
+        "firstName": "jane",
+        "lastName": "smith",
+        "sex": "female",
+        "age": 23
+      }
+    },
+    {
+      "person": {
+        "firstName": "bob",
+        "lastName": "jones",
+        "sex": "male",
+        "age": 34
+      }
+    },
+    {
+      "person": {
+        "firstName": "bob",
+        "lastName": "roberts",
+        "sex": "male",
+        "age": 33
+      }
+    },
+    {
+      "person": {
+        "firstName": "jane",
+        "lastName": "roberts",
+        "sex": "female",
+        "age": 36
+      }
+    }
+  ]
+}

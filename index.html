@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <style>
+        body { padding-top:50px; }
+    </style>
+    <script type="text/javaScript">
+        angular.module('sortApp', [])
+
+                .controller('mainController', function($scope, $http) {
+                    $scope.sortType     = 'name'; // set the default sort type
+                    $scope.sortReverse  = false;  // set the default sort order
+                    $scope.searchFish   = '';     // set the default search/filter term
+
+                    // create the list of sushi rolls
+
+                    $http.get('src/main/web/people.json').success(function(data) {
+                          $scope.sushi = data;
+                    });
+
+                });
+    </script>
+</head>
+<body>
+<div class="container" ng-app="sortApp" ng-controller="mainController">
+
+
+
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                <input type="text" class="form-control" placeholder="Search" ng-model="searchFish">
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped">
+
+        <thead>
+        <tr>
+            <td>
+                <a href="#" ng-click="sortType = 'person.firstName'; sortReverse = !sortReverse">
+                    FirstName
+                    <span ng-show="sortType == 'person.firsName' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'person.firstName' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href="#" ng-click="sortType = 'person.lastName'; sortReverse = !sortReverse">
+                    LastName
+                    <span ng-show="sortType == 'person.lastName' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'person.lastName' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href="#" ng-click="sortType = 'person.sex'; sortReverse = !sortReverse">
+                    Sex
+                    <span ng-show="sortType == 'person.sex' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'person.sex' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href="#" ng-click="sortType = 'person.age'; sortReverse = !sortReverse">
+                    Age
+                    <span ng-show="sortType == 'person.age' && !sortReverse" class="fa fa-caret-down"></span>
+                    <span ng-show="sortType == 'person.age' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+            </td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="roll in sushi.people | orderBy:sortType:sortReverse | filter:searchFish">
+            <td>{{ roll.person.firstName }}</td>
+            <td>{{ roll.person.lastName }}</td>
+            <td>{{ roll.person.sex }}</td>
+            <td>{{ roll.person.age }}</td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+</body>
+</html>
