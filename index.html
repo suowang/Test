@@ -5,29 +5,16 @@
     <title>Sort</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-json.js"></script>
     <style>
-        body { padding-top:50px; }
+        body {
+            padding-top: 50px;
+        }
     </style>
-    <script type="text/javaScript">
-        angular.module('sortApp', [])
 
-                .controller('mainController', function($scope, $http) {
-                    $scope.sortType     = 'name'; // set the default sort type
-                    $scope.sortReverse  = false;  // set the default sort order
-                    $scope.searchFish   = '';     // set the default search/filter term
-
-                    // create the list of sushi rolls
-
-                    $http.get('src/main/web/people.json').success(function(data) {
-                          $scope.sushi = data;
-                    });
-
-                });
-    </script>
 </head>
 <body>
 <div class="container" ng-app="sortApp" ng-controller="mainController">
-
 
 
     <form>
