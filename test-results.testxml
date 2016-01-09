@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Tests>
+  <Test>
+    <Name>Simple Angular Controller Test =&gt;  Test 1: mainController should be successfully created and run (PhantomJS 1.9.8 (Windows 7 0.0.0))</Name>
+    <DisplayName>Simple Angular Controller Test =&gt;  Test 1: mainController should be successfully created and run (PhantomJS 1.9.8 (Windows 7 0.0.0))</DisplayName>
+    <Outcome>Passed</Outcome>
+  </Test>
+</Tests>
